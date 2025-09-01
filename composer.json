@@ -1,0 +1,9 @@
+{
+    "name": "emmanuel/morfin-landing-page",
+    "autoload": {
+        "psr-4": {
+            "Emmanuel\\MorfinLandingPage\\": "src/"
+        }
+    },
+    "require": {}
+}
