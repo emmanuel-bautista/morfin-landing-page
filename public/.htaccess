@@ -1,0 +1,19 @@
+# Enable URL rewriting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If the request is for an existing file or directory, serve it directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Otherwise forward the request to index.php so the PHP router can handle it
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Optional security headers (uncomment to enable)
+#<IfModule mod_headers.c>
+#    Header always set X-Content-Type-Options "nosniff"
+#    Header always set X-Frame-Options "SAMEORIGIN"
+#    Header always set X-XSS-Protection "1; mode=block"
+#</IfModule>
