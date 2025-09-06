@@ -7,7 +7,6 @@
                 </div>
                 <div class="col-12 col-lg-4 mb-3">
                     <h3 class="text-uppercase font-weight-bold">Contáctanos</h3>
-                    <!-- Información de contacto -->
                     <ul class="list-unstyled contact-info mb-3">
                         <li class="mb-2">
                             <i class="bi bi-geo-alt-fill"></i>
