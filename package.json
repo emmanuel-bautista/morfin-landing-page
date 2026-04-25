@@ -1,0 +1,28 @@
+{
+  "name": "morfin-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmanuel-bautista/morfin-landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/emmanuel-bautista/morfin-landing-page/issues"
+  },
+  "homepage": "https://github.com/emmanuel-bautista/morfin-landing-page#readme",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "laravel-vite-plugin": "^3.0.1",
+    "tailwindcss": "^4.2.4",
+    "vite": "^8.0.10"
+  }
+}

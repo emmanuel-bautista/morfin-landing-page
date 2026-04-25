@@ -2,8 +2,11 @@
     "name": "emmanuel/morfin-landing-page",
     "autoload": {
         "psr-4": {
-            "Emmanuel\\MorfinLandingPage\\": "src/"
-        }
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "require": {
         "illuminate/routing": "^8.83",

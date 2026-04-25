@@ -6,31 +6,29 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 
-require __DIR__ . '/../vendor/autoload.php';
 
-$blade = new Blade(__DIR__ . '/../views', __DIR__ . '/../cache');
-$router = new Router(new Dispatcher(), new Container());
 
-$router->get('/', function() use ($blade){
-    return $blade->render('home');
-});
-
-$router->get('/about', function() use ($blade){
-    return $blade->render('about');
-});
-
-$router->get('/offer', function() use ($blade){
-    return $blade->render('offer');
-});
-
-$router->get('/contact', function() use ($blade){
-    return $blade->render('contact');
-});
-
-$router->fallback(function() use ($blade){
-    return $blade->render('error404');
-});
-
-$request = Request::capture();
-$response = $router->dispatch($request);
-$response->send();
+try {
+    //code...
+    require __DIR__ . '/../vendor/autoload.php';
+    
+    $container = new Container();
+    Container::setInstance($container);
+    
+    $blade = new Blade(__DIR__ . '/../resources/views', __DIR__ . '/../storage/framework/views');
+    $container->instance('blade', $blade);
+    
+    $blade->compiler()->directive('vite', function ($expression) {
+        return "<?php echo vite($expression); ?>";
+    });
+    
+    $router = new Router(new Dispatcher(), $container);
+    
+    require __DIR__ . '/../routes/web.php';
+    
+    $request = Request::capture();
+    $response = $router->dispatch($request);
+    $response->send();
+} catch (\Throwable $th) {
+    echo $th->getMessage();
+}
